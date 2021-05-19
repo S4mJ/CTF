@@ -1,0 +1,9 @@
+fgets read is only 64 bytes and the buffer size + rbp is 40 bytes. We have 16 bytes for the ROP
+move stack pointer using rop gadget xcgh eax, rsp; ret to heap. address of uVar is printed by program so we know wwhat to set rsp to.
+
+need to call ret2win
+call foothold function to fill its .got.plt
+compute offset of foothold function and ret2win to know ret2wins address
+set value of register 1 equal to got.plt of foothold function
+set register 1 = register1(foothold_function) + register2(offset) = ret2win and call register 1
+
